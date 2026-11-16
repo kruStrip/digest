@@ -32,7 +32,7 @@
 | `AGENTS.md` с правилами проекта | `AGENTS.md` |
 | Не меньше трёх заданий агенту с «Готово, когда» и записями в журнале | `tasks/01`…`04`, `ai-log.md` |
 | GitHub Pages; в конвейере линтер `--deny-warnings` и тесты до сборки | `.github/workflows/deploy.yml` |
-| Процессы n8n автоматизации работают | `../avtomatizaciya/digest/` |
+| Процессы n8n автоматизации работают | [код и инструкция автоматизации](https://github.com/kruStrip/Angular-React/tree/main/avtomatizaciya/digest) |
 
 ## Данные
 
@@ -79,7 +79,12 @@ npx lighthouse@12 http://localhost:5173/digest/ --only-categories=accessibility 
 ```
 
 Результат на этой странице: Accessibility **100**, ошибок в консоли браузера нет,
-Tab проходит поиск, тег, флажок, ссылки и кнопки, фокус виден.
+Tab проходит поиск, тег, флажок, ссылки и кнопки, фокус виден. На опубликованной
+странице Lighthouse 12 тоже даёт **100**: 8 карточек, тег «ИИ» → 3 из 8, отметка
+«прочитано» переживает F5.
+
+Конвейер на GitHub прогоняет линтер и тесты до сборки и публикует `dist` на Pages:
+[runs](https://github.com/kruStrip/digest/actions).
 
 ## Структура
 
@@ -100,6 +105,6 @@ ai-log.md                    — журнал: задания, проверки,
 
 ## Что осталось сделать вручную
 
-- Выполнить шаги автоматизации (`../avtomatizaciya/digest/README.md`) и подставить
+- Выполнить шаги автоматизации ([инструкция](https://github.com/kruStrip/Angular-React/blob/main/avtomatizaciya/digest/README.md)) и подставить
   адрес `/exec` в переменную репозитория.
 - Уметь объяснить каждую строку кода: вопросы и решения — в `ai-log.md`.

@@ -32,7 +32,7 @@
 | `AGENTS.md` с правилами проекта | `AGENTS.md` |
 | Не меньше трёх заданий агенту с «Готово, когда» и записями в журнале | `tasks/01`…`04`, `ai-log.md` |
 | GitHub Pages; в конвейере линтер `--deny-warnings` и тесты до сборки | `.github/workflows/deploy.yml` |
-| Процессы n8n автоматизации работают | [код и инструкция автоматизации](https://github.com/kruStrip/Angular-React/tree/main/avtomatizaciya/digest) |
+| Процессы n8n автоматизации работают | `../avtomatizaciya/digest/` |
 
 ## Данные
 
@@ -43,11 +43,11 @@
            "title": "…", "summary": "…", "tags": "ИИ, наука", "link": "…"}]}
 ```
 
-Пока шаги с аккаунтом Google из автоматизации не выполнены, сайт читает
-`public/data/news.json` — демонстрационный набор в том же формате (8 новостей,
-источники Хабр, 3DNews, iXBT). Чтобы подключить настоящие новости, достаточно
-заменить `VITE_DIGEST_URL` в `.env` и в переменной репозитория
-**Settings → Secrets and variables → Actions → Variables**: код не меняется.
+Сайт читает настоящий адрес Apps Script из `VITE_DIGEST_URL`: локально — из `.env`,
+на GitHub Pages — из переменной репозитория **Settings → Secrets and variables →
+Actions → Variables**. Код при смене адреса не меняется. Если переменная не задана,
+сборка подставляет `public/data/news.json` — демонстрационный набор в том же формате
+(8 новостей, источники Хабр, 3DNews, iXBT), чтобы страница не осталась пустой.
 
 Ключ записи в таблицу странице не нужен: он остаётся в n8n.
 
@@ -105,6 +105,6 @@ ai-log.md                    — журнал: задания, проверки,
 
 ## Что осталось сделать вручную
 
-- Выполнить шаги автоматизации ([инструкция](https://github.com/kruStrip/Angular-React/blob/main/avtomatizaciya/digest/README.md)) и подставить
+- Выполнить шаги автоматизации (`../avtomatizaciya/digest/README.md`) и подставить
   адрес `/exec` в переменную репозитория.
 - Уметь объяснить каждую строку кода: вопросы и решения — в `ai-log.md`.
